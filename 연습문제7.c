@@ -5,7 +5,7 @@ int main(void) {
 
 	int score[5];
 	int sum = 0;
-	int max, min;		//유효점수
+	int max, min;		//최고점, 최저점
 	double avg;			//평균
 
 	printf("5명 심사위원의 점수 입력: ");
@@ -14,10 +14,13 @@ int main(void) {
 	}
 
 
-	
+
+
+	//평균 구하기
+	avg = (sum - max - min) / 3.0;
 
 	printf("유효점수: ");
-	printf("평균: ");
+	printf("평균: %.1f", avg);
 	return 0;
 }
 
