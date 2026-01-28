@@ -3,14 +3,18 @@
 
 int main(void) {
 
-	int ary[5];
-	int score;
-	float avg;
+	int score[5];
+	int sum = 0;
+	int max, min;		//유효점수
+	double avg;			//평균
 
 	printf("5명 심사위원의 점수 입력: ");
-	scanf("%d%d%d%d%d", &ary[0], &ary[1], &ary[2], &ary[3], &ary[4]);
+	for (int i = 0; i < 5; i++) {
+		scanf("%d", &score[i]);
+	}
 
 
+	
 
 	printf("유효점수: ");
 	printf("평균: ");
