@@ -2,23 +2,23 @@
 #include <stdio.h>
 
 
-void func(int num,int *mod,int *rem);
+void func(int num,int *mod,int *rem);   //함수 선언
 int main(void)
 {
-    int mod, rem;
-    int num;
-    printf("양수입력: ");
-    scanf("%d", &num);
+    int mod, rem;                       //몫과 나머지 변수 선언
+    int num;                            //입력받을 양수 변수 선언
+    printf("양수입력: ");                //출력
+    scanf("%d", &num);                  //키보드로 입력 받는 값 저장
 
-    func(num, &mod, &rem);               
+    func(num, &mod, &rem);              //함수 호출 
 
-    printf("몫 : % d, 나머지 : % d", mod, rem); 
+    printf("몫 : % d, 나머지 : % d", mod, rem); //값 출력
 
     return 0;
 }
-void func(int num, int *mod, int *rem) {
-    *mod = num / 4;
-    *rem = num % 4;
+void func(int num, int *mod, int *rem) {       //몫과 나머지 구하는 함수
+    *mod = num / 4;                            //몫 구하기
+    *rem = num % 4;                            //나머지 구하기
 }
 /*
 #### 문제
