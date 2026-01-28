@@ -3,17 +3,32 @@
 
 int main(void) {
 
-	int num[6];
-	
+	int lotto[6];
 
-	printf("로또번호 입력: ");
-	for (int i = 0; i < 6; i++) {
-		scanf("%d", &num[i]);
+	for (int i = 0; i < 6; i++)
+	{
+		printf("로또번호 입력: ");
+		scanf("%d", &lotto[i]);
+
+		for (int j = 0; j < i; j++)
+		{
+			if (lotto[i] == lotto[j])
+			{
+				printf("중복된 숫자 입니다.");
+				i--;
+				break;
+			}
+		}
+		
 	}
 
-	printf("입력된 로또번호:");
-
+	printf("입력된 로또 번호: ");
+	for (int i = 0; i < 6; i++)
+	{
+		printf("%2d", lotto[i]);
+	}
 	return 0;
+
 }
 /*
 구조잡기
