@@ -1,17 +1,24 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+
+void func(int num,int *mod,int *rem);
 int main(void)
 {
     int mod, rem;
     int num;
-    func(&mod, &rem);
     printf("양수입력: ");
     scanf("%d", &num);
 
-    printf("몫 : % d, 나머지 : % d", mod, rem);
+    func(num, &mod, &rem);               
+
+    printf("몫 : % d, 나머지 : % d", mod, rem); 
 
     return 0;
+}
+void func(int num, int *mod, int *rem) {
+    *mod = num / 4;
+    *rem = num % 4;
 }
 /*
 #### 문제
