@@ -56,7 +56,7 @@ int main(void)
 
         printf("점수 입력 : ");
         scanf("%d", &scores[i]);
-
+        
         getchar();
     }
 
