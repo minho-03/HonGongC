@@ -26,43 +26,45 @@ int main(void)
     printf("음료를 선택하세요: ");
     scanf("%d", &choice);
 
-    // 선택 확인
-    printf("\n[%s]를 선택하셨습니다. %d원입니다.\n",
-        products[choice - 1], prices[choice - 1], stock[choice - 1]);
+    if (stock[choice - 1] == 0) {
+        printf("품절입니다ㅠㅠ");
+    }
+    else {
+        // 선택 확인
+        printf("\n[%s]를 선택하셨습니다. %d원입니다.\n",
+            products[choice - 1], prices[choice - 1], stock[choice - 1]);
 
-    // 돈을 넣은 누적 금액
-    int money = 0;
+        // 돈을 넣은 누적 금액
+        int money = 0;
 
-    // 선택한 상품의 가격 
-    int price = prices[choice - 1];
+        // 선택한 상품의 가격 
+        int price = prices[choice - 1];
 
-    // 금액 입력 + 잔액 표시 하는 과정
-    printf("\n돈을 넣어주세요.\n");
-    while (money < price)
-    {
-        int input;
+        // 금액 입력 + 잔액 표시 하는 과정
+        printf("\n돈을 넣어주세요.\n");
+        while (money < price){
+            int input;
 
-        printf("투입 (현재: %d원, 필요: %d원): ", money, price);
-        scanf("%d", &input);
-        money += input;                         // 투입한 돈 누적으로 계산
+            printf("투입 (현재: %d원, 필요: %d원): ", money, price);
+            scanf("%d", &input);
+            money += input;                         // 투입한 돈 누적으로 계산
 
-        if (money < price)
-        {
-            printf("→ %d원 부족합니다.\n", price - money);
+            if (money < price){
+                printf("→ %d원 부족합니다.\n", price - money);
+            }
         }
+        printf("\n금액이 충분합니다!\n");
+
+        // 잔돈 = 투입 금액 - 상품 가격
+        int change = (money - price);
+        printf("\n====== 구매 완료 ======\n");
+        printf("[%s]가 나옵니다.\n", products[choice - 1]);
+        stock[choice - 1]--;            // 재고 감소
+
+        if (change > 0) {
+            printf("거스름돈: %d원\n", change);
+        }
+        printf("이용해주셔서 감사합니다!");
     }
-    printf("\n금액이 충분합니다!\n");
-
-    // 잔돈 = 투입 금액 - 상품 가격
-    int change = (money - price);
-    printf("\n====== 구매 완료 ======\n");
-    printf("[%s]가 나옵니다.\n", products[choice - 1]);
-    
-
-    if (change > 0) {
-        printf("거스름돈: %d원\n", change);
-    }
-    printf("이용해주셔서 감사합니다!");
-
     return 0;
 }
