@@ -6,3 +6,31 @@
 
 # .gitignore
 !.gitignore
+
+# ===== VS Code =====
+.vscode/
+
+# ===== Build files =====
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+*.ilk
+*.pdb
+
+# ===== CMake =====
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ===== Debug / temp =====
+*.log
+*.tmp
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
