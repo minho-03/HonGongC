@@ -5,15 +5,16 @@ char again;
 int main(void)
 
 {
+    // 구매자의 선택
+    int choice;
+
+    // 상품 정보
+    char* products[] = { "콜라", "환타", "커피", "사이다", "웰치스", "박카스" };
+    int prices[] = { 1200, 1000, 800, 1000, 1400, 1000 };
+    int stock[] = { 10, 10, 10, 10, 10, 0 };
+    
     do {
-        // 구매자의 선택
-        int choice;
-
-        // 상품 정보
-        char* products[] = { "콜라", "환타", "커피", "사이다", "웰치스", "박카스" };
-        int prices[] = { 1200, 1000, 800, 1000, 1400, 1000 };
-        int stock[] = { 10, 10, 10, 10, 10, 0 };
-
+        
         // 메뉴 출력
         printf("========= 자판기 =========\n");
         printf("1. %s %d원 수량: %d\n", products[0], prices[0], stock[0]);
@@ -28,7 +29,7 @@ int main(void)
         printf("음료를 선택하세요: ");
         scanf("%d", &choice);
 
-        if (stock[choice - 1] == 0) {
+        if (stock[choice - 1] == 0) {           // [choice - 1]은 인덱스가 0~5까지여서 -1 해주기
             printf("품절입니다ㅠㅠ\n");
         }
         else {
