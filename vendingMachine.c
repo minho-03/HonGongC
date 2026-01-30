@@ -36,6 +36,7 @@ int main(void)
     // 선택한 상품의 가격 
     int price = prices[choice - 1];
 
+    // 금액 입력 + 잔액 표시 하는 과정
     printf("\n돈을 넣어주세요.\n");
     while (money < price)
     {
@@ -52,7 +53,16 @@ int main(void)
     }
     printf("\n금액이 충분합니다!\n");
 
+    // 잔돈 = 투입 금액 - 상품 가격
+    int change = (money - price);
+    printf("\n====== 구매 완료 ======\n");
+    printf("[%s]가 나옵니다.\n", products[choice - 1]);
+    
 
+    if (change > 0) {
+        printf("거스름돈: %d원\n", change);
+    }
+    printf("이용해주셔서 감사합니다!");
 
     return 0;
 }
