@@ -1,8 +1,8 @@
 # 모든 파일 무시
-*
+
 
 # C 파일만 허용
-!*.c
+
 
 # .gitignore
 !.gitignore
@@ -20,7 +20,10 @@
 *.dll
 *.ilk
 *.pdb
-
+*.vcxproj*
+*.vs
+*.slnx
+*HonGong/
 # ===== CMake =====
 CMakeFiles/
 CMakeCache.txt
