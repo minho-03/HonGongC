@@ -5,8 +5,9 @@ char again;
 int main(void)
 
 {
-    // 구매자의 선택
-    int choice;
+    int choice;     // 구매자의 선택
+    int pay;        // 결제하는 수단 (0:신용카드(무조건 결제가능), 1:현금)
+
 
     // 상품 정보
     char* products[] = { "콜라", "환타", "커피", "사이다", "웰치스", "박카스" };
@@ -35,7 +36,7 @@ int main(void)
         else {
             // 선택 확인
             printf("\n[%s]은 %d원입니다.\n",
-                products[choice - 1], prices[choice - 1], stock[choice - 1]);
+                products[choice - 1], prices[choice - 1]);
 
             // 돈을 넣은 누적 금액
             int money = 0;
@@ -43,18 +44,32 @@ int main(void)
             // 선택한 상품의 가격 
             int price = prices[choice - 1];
 
-            // 금액 입력 + 잔액 표시 하는 과정
-            printf("\n돈을 넣어주세요.\n");
-            while (money < price) {
-                int input;
+            //
+            printf("결제 수단을 선택하세요: \n");
+            printf("(0: 카드, 1: 현금)\n");
+            scanf("%d", &pay);
 
-                printf("투입 (현재: %d원, 필요: %d원): ", money, price);
-                scanf("%d", &input);
-                money += input;                         // 투입한 돈 누적으로 계산
+            if (pay == 0) {
+                printf("결제가 완료되었습니다!\n");   // 카드 결제
+            }
+            else if (pay == 1) {
+                // 금액 입력 + 잔액 표시 하는 과정
+                printf("\n돈을 넣어주세요.\n");
+                while (money < price) {
+                    int input;
 
-                if (money < price) {
-                    printf("→ %d원 부족합니다.\n", price - money);
+                    printf("투입 (현재: %d원, 필요: %d원): ", money, price);
+                    scanf("%d", &input);
+                    money += input;                         // 투입한 돈 누적으로 계산
+
+                    if (money < price) {
+                        printf("→ %d원 부족합니다.\n", price - money);
+                    }
                 }
+            }
+            else {
+                printf("잘못된 결제수단 입니다.\n");
+                continue;                       // 다시 메뉴로
             }
             printf("\n금액이 충분합니다!\n");
 
