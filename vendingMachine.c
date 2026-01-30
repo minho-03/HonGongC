@@ -4,6 +4,7 @@
 int main(void)
 
 {
+    // 구매자의 선택
     int choice;
 
     // 상품 정보
@@ -29,8 +30,29 @@ int main(void)
     printf("\n[%s]를 선택하셨습니다. %d원입니다.\n",
         products[choice - 1], prices[choice - 1], stock[choice - 1]);
 
+    // 돈을 넣은 누적 금액
+    int money = 0;
+
+    // 선택한 상품의 가격 
+    int price = prices[choice - 1];
+
+    printf("\n돈을 넣어주세요.\n");
+    while (money < price)
+    {
+        int input;
+
+        printf("투입 (현재: %d원, 필요: %d원): ", money, price);
+        scanf("%d", &input);
+        money += input;                         // 투입한 돈 누적으로 계산
+
+        if (money < price)
+        {
+            printf("→ %d원 부족합니다.\n", price - money);
+        }
+    }
+    printf("\n금액이 충분합니다!\n");
+
+
 
     return 0;
-
-
 }
